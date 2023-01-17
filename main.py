@@ -17,7 +17,7 @@ playerImg = pygame.image.load('player.png')
 playerX = 125
 playerY = 450
 playerX_change = 0
-playerY_change = 0
+playerY_change = 0.1
 ufo = pygame.transform.scale(playerImg, (50, 50))
 
 # Enemy
@@ -31,7 +31,7 @@ cow = pygame.transform.scale(enemyImg, (50, 50))
 width = 65
 height = 130
 
-vel = 1
+vel = 0.5
 
 def enemy(x, y):
     screen.blit(cow, (enemyX, enemyY)) 
@@ -67,12 +67,12 @@ while running:
       
     screen.fill((255 ,255, 255))
     
-    playerX += playerX_change
+    playerY += playerY_change
     
-    if playerX <= 0:
-        playerX = 0
-    elif playerX >= 236:
-        playerX = 236
+    if playerY <= 0:
+        playerY_change = 0.1
+    elif playerY >= 536:
+        playerY_change = -0.1
         
     enemyX += enemyX_change
     
